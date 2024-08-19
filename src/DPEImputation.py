@@ -25,7 +25,7 @@ def _shinkage_cov_estimator(S):
     p = S.shape[1]
     alpha = 0
     threshold = 0.01 - 0.0099*np.exp(-0.02*(p-3))
-    while np.det(S + alpha * np.eye(p)) < threshold:
+    while np.linalg.det(S + alpha * np.eye(p)) < threshold:
         alpha += 0.01
     s = S + alpha * np.eye(p)
     return s
@@ -92,7 +92,7 @@ class DPEI():
     def _transform_without_label(self):
         Ximp = self.X.copy()
         S = _cov(self.X, n_jobs=None)
-        if np.det(S) < 0:
+        if np.linalg.det(S) < 0:
             S = _shinkage_cov_estimator(S)
         for idx in range(self.n_samples):
             missing_idxes = np.isnan(self.X[idx])
