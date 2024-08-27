@@ -265,7 +265,6 @@ class DPEImputer:
 
         # Extract the final imputed features
         X_final_imputed = X_imputed_total[:, :n_features]
-        print(X_final_imputed.shape)
         # Adjust for the overlap in the extended feature matrix
         for i in range(extra_features):
             X_final_imputed[:, i] += X_imputed_total[:, n_features + i]
