@@ -63,7 +63,7 @@ class DPEImputer:
         """
         self.window_size = window_size
         n_features = X.shape[1]
-        # Check 
+        # Check the window_size is valid or not
         if (self.window_size > n_features):
             raise ValueError("The window size must be less than the number of features.")
         
@@ -321,7 +321,7 @@ class DPEImputer:
 
         return X_final_imputed
 
-    def fit_transform(self, X, y=None):
+    def fit_transform(self, X, y=None, window_size=5):
         """Fit and impute all missing values in X.
 
         Parameters
@@ -338,4 +338,5 @@ class DPEImputer:
         X : {array-like}, shape (n_samples, n_features)
             Returns imputed dataset.
         """
-        return self.fit(X, y).transform(X, y)
+        return self.fit(X, y, window_size).transform(X, y)
+    
