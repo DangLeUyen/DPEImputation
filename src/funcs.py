@@ -56,27 +56,3 @@ def solving(a,b,c,d,del_case):
     f = lambda x: abs(x-del_case)
     F=[f(x) for x in real_roots]
     return real_roots[np.argmin(F)]
-
-   
-def rmse_loss (ori_data, imputed_data, data_m):
-  '''Compute RMSE loss between ori_data and imputed_data
-  
-  Args:
-    - ori_data: original data without missing values
-    - imputed_data: imputed data
-    - data_m: indicator matrix for missingness
-    
-  Returns:
-    - rmse: Root Mean Squared Error
-  '''
-  
-  ori_data, norm_parameters = normalization(ori_data)
-  imputed_data, _ = normalization(imputed_data, norm_parameters)
-    
-  # Only for missing values
-  nominator = np.sum(((1-data_m) * ori_data - (1-data_m) * imputed_data)**2)
-  denominator = np.sum(1-data_m)
-  
-  rmse = np.sqrt(nominator/float(denominator))
-  
-  return rmse
