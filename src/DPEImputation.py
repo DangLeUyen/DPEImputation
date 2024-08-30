@@ -34,12 +34,11 @@ def _shinkage_cov_estimator(S):
     return s
 
 class DPEImputer:
-    def __init__(self, missing_values = np.nan, copy=True, window_size=5):
+    def __init__(self, missing_values = np.nan, copy=True):
         self.missing_values = missing_values
         self.copy = copy
-        self.window_size = window_size
 
-    def fit(self, X, y = None, window_size=5):
+    def fit(self, X, y = None, window_size=None):
         """Fit the imputer on `X`.
 
         Parameters
@@ -61,8 +60,15 @@ class DPEImputer:
         self : object
             Fitted estimator.
         """
-        self.window_size = window_size
         n_features = X.shape[1]
+        if window_size is None:
+            if (n_features < 7):
+                self.window_size = n_features
+            else:
+                self.window_size = 7
+        else:
+            self.window_size = window_size
+
         # Check the window_size is valid or not
         if (self.window_size > n_features):
             raise ValueError("The window size must be less than the number of features.")
@@ -133,7 +139,6 @@ class DPEImputer:
             return X
         
         X = X.astype(np.float64)
-        
         # Call function to impute missing
         if y is not None:
             X = self._impute_windowed_with_label(X, y)
@@ -165,7 +170,6 @@ class DPEImputer:
 
         # Estimate the covariance matrix of X
         S = DPER(X)
-
         # Apply shrinkage to the covariance matrix if its determinant is negative
         if np.linalg.det(S) < 0:
             S = _shinkage_cov_estimator(S)
@@ -321,7 +325,7 @@ class DPEImputer:
 
         return X_final_imputed
 
-    def fit_transform(self, X, y=None, window_size=5):
+    def fit_transform(self, X, y=None, window_size=None):
         """Fit and impute all missing values in X.
 
         Parameters
