@@ -38,11 +38,11 @@ from DPEImputation import DPEImputer
 # Create an instance of the DPEImputer class
 imputer = DPEImputer()
 
-# Fit and transform the imputer on the incomplete dataset X with window_size set to 10.
+# Fit and transform the imputer on the incomplete dataset X with window_size by default.
 # If window_size is not provided, it defaults to 7.
 # If the number of features in the dataset is less than 7 and window_size is not provided,
 # window_size will be automatically set to the number of features.
-X_imputed = imputer.fit_transform(X, window_size=10)
+X_imputed = imputer.fit_transform(X)
 ```
 
 For additional examples and details, please refer to the `example.ipynb` file in the repository.
