@@ -10,13 +10,13 @@ You can install the DPEImputation package from Github
 
 ### Implementation of simulation study
 
-`from DPEImputation import DPEImputer
-# Create an instance of the DPEImputation class
-imputer = DPEImputer()
+`from DPEImputation import DPEImputer`
+`# Create an instance of the DPEImputation class`
+`imputer = DPEImputer()`
 
-# Fit the imputer on the incomplete dataset X
-imputer.fit(X, initializing=False)
+`# Fit the imputer on the incomplete dataset X`
+`imputer.fit(X, initializing=False)`
 
-# Apply imputation to the missing data that we want to impute 
-X_imputed = imputer.transform(X)  
+`# Apply imputation to the missing data that we want to impute`
+`X_imputed = imputer.transform(X)`
 `
