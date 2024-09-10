@@ -14,7 +14,8 @@ After installation, you can import the **DPEImputer** class as follows:
 
 #### 1. For a Dataset X with Labels y
 
-```from DPEImputation import DPEImputer
+```
+from DPEImputation import DPEImputer
 
 # Create an instance of the DPEImputer class
 imputer = DPEImputer()
@@ -30,7 +31,8 @@ X_imputed = imputer.transform(X, y)
 
 #### 2. For a dataset X without label
 
-```from DPEImputation import DPEImputer
+```
+from DPEImputation import DPEImputer
 
 # Create an instance of the DPEImputer class
 imputer = DPEImputer()
