@@ -22,7 +22,8 @@ imputer = DPEImputer()
 
 # Fit the imputer on the incomplete dataset X with a specified window_size of 10.
 # If window_size is not provided, it defaults to 7.
-# If the number of features in the dataset is less than 7, and window_size is not provided, window_size will be automatically set to the number of features.
+# If the number of features in the dataset is less than 7, and window_size is not provided,
+# window_size will be automatically set to the number of features.
 imputer.fit(X, y, window_size=10)
 
 # Apply imputation to the missing data in X
@@ -39,7 +40,8 @@ imputer = DPEImputer()
 
 # Fit and transform the imputer on the incomplete dataset X with window_size set to 10.
 # If window_size is not provided, it defaults to 7.
-# If the number of features in the dataset is less than 7 and window_size is not provided, window_size will be automatically set to the number of features.
+# If the number of features in the dataset is less than 7 and window_size is not provided,
+# window_size will be automatically set to the number of features.
 X_imputed = imputer.fit_transform(X, window_size=10)
 ```
 
