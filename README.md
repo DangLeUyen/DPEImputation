@@ -1,5 +1,5 @@
-# Direct Parameter Estimation-based Imputation for randomly missing data
-This repository contains the **DPEImputation** package, designed for the imputation of missing data. The package is based on the methodology outlined in the paper **"Direct Parameter Estimation-based Imputation for Randomly Missing Data"** by Tuan L. Vo, Van Hua, Uyen Dang, and Thu Nguyen.
+# Parameter-based Imputation via Cycle-ensemble Averaging for Randomly Missing Data
+This repository contains the **DPEImputation** package, designed for the imputation of missing data. The package is based on the methodology outlined in the paper **"Parameter-based Imputation via Cycle-ensemble Averaging for Randomly Missing Data"** by Tuan L. Vo, Uyen Dang, Van Hua, and Thu Nguyen.
 
 ### Installation of package
 To install the DPEImputation package, you can easily do so via GitHub. Run the following command in your environment:
@@ -49,7 +49,7 @@ For additional examples and details, please refer to the `example.ipynb` file in
 ### Citation
 If you use this package in your research, please cite the paper:
 
-Tuan L. Vo, Van Hua, Uyen Dang, Thu Nguyen. Direct Parameter Estimation-based Imputation for Randomly Missing Data.
+Tuan L. Vo, Uyen Dang, Van Hua, Thu Nguyen. Parameter-based Imputation via Cycle-ensemble Averaging for Randomly Missing Data
 
 -------------------------------
 This README provides users with a clear guide on installing and using the DPEImputation package while also giving proper credit to the research behind it.
